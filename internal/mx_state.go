@@ -1,0 +1,38 @@
+package internal
+
+type ClabeMxState string
+
+const (
+	MXAGU ClabeMxState = "MX-AGU"
+	MXBCN ClabeMxState = "MX-BCN"
+	MXBCS ClabeMxState = "MX-BCS"
+	MXCAM ClabeMxState = "MX-CAM"
+	MXCHH ClabeMxState = "MX-CHH"
+	MXCHP ClabeMxState = "MX-CHP"
+	MXCMX ClabeMxState = "MX-CMX"
+	MXCOA ClabeMxState = "MX-COA"
+	MXCOL ClabeMxState = "MX-COL"
+	MXDUR ClabeMxState = "MX-DUR"
+	MXGRO ClabeMxState = "MX-GRO"
+	MXGUA ClabeMxState = "MX-GUA"
+	MXHID ClabeMxState = "MX-HID"
+	MXJAL ClabeMxState = "MX-JAL"
+	MXMEX ClabeMxState = "MX-MEX"
+	MXMIC ClabeMxState = "MX-MIC"
+	MXMOR ClabeMxState = "MX-MOR"
+	MXNAY ClabeMxState = "MX-NAY"
+	MXNLE ClabeMxState = "MX-NLE"
+	MXOAX ClabeMxState = "MX-OAX"
+	MXPUE ClabeMxState = "MX-PUE"
+	MXQUE ClabeMxState = "MX-QUE"
+	MXROO ClabeMxState = "MX-ROO"
+	MXSIN ClabeMxState = "MX-SIN"
+	MXSLP ClabeMxState = "MX-SLP"
+	MXSON ClabeMxState = "MX-SON"
+	MXTAB ClabeMxState = "MX-TAB"
+	MXTAM ClabeMxState = "MX-TAM"
+	MXTLA ClabeMxState = "MX-TLA"
+	MXVER ClabeMxState = "MX-VER"
+	MXYUC ClabeMxState = "MX-YUC"
+	MXZAC ClabeMxState = "MX-ZAC"
+)
