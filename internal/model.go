@@ -5,6 +5,10 @@ type Clabe struct {
 	BanksMap  map[int]ClabeBank
 	CitiesMap map[int][]ClabeCityInfo
 	Cities    []ClabeCityInfo
+
+	Number   string
+	BankInfo ClabeBank
+	CityInfo ClabeCityInfo
 }
 
 type ClabeBank struct {
