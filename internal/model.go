@@ -1,4 +1,4 @@
-package data
+package internal
 
 // Clabe представляет набор данных и функций для работы с CLABE-номерами.
 type Clabe struct {

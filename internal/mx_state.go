@@ -1,4 +1,4 @@
-package data
+package internal
 
 type ClabeMxState string
 

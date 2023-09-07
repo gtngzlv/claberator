@@ -1,13 +1,15 @@
 package claberator
 
-import "github.com/gtngzlv/claberator/data"
+import (
+	"github.com/gtngzlv/claberator/internal"
+)
 
-func ReturnRandomClabe() data.Clabe {
-	accountNumber := data.ReturnRandomAccountNumber()
-	bankInfo, bankCode := data.ReturnRandomBank()
-	cityInfo, cityCode := data.ReturnRandomCity()
+func ReturnRandomClabe() internal.Clabe {
+	accountNumber := internal.ReturnRandomAccountNumber()
+	bankInfo, bankCode := internal.ReturnRandomBank()
+	cityInfo, cityCode := internal.ReturnRandomCity()
 
-	var clabe data.Clabe
+	var clabe internal.Clabe
 	generated := clabe.Calculate(bankCode, cityCode, accountNumber)
 	clabe.Number = generated
 	clabe.BankInfo = bankInfo
