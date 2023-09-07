@@ -1,4 +1,4 @@
-package main
+package claberator
 
 import "github.com/gtngzlv/claberator/data"
 
