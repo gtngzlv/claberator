@@ -6,11 +6,11 @@ import (
 
 func ReturnRandomClabe() internal.Clabe {
 	accountNumber := internal.ReturnRandomAccountNumber()
-	bankInfo, bankCode := internal.ReturnRandomBank()
+	bankInfo := internal.ReturnRandomBank()
 	cityInfo, cityCode := internal.ReturnRandomCity()
 
 	var clabe internal.Clabe
-	generated := clabe.Calculate(bankCode, cityCode, accountNumber)
+	generated := clabe.Calculate(bankInfo.Code, cityCode, accountNumber)
 	clabe.Number = generated
 	clabe.BankInfo = bankInfo
 	clabe.CityInfo = cityInfo

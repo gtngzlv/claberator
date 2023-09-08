@@ -12,11 +12,12 @@ type Clabe struct {
 }
 
 type ClabeBank struct {
+	Code int
 	Tag  string
 	Name string
 }
 
-type ClabeBanksMap map[int]ClabeBank
+type ClabeBanks []ClabeBank
 
 type ClabeCityInfo struct {
 	Code  int
