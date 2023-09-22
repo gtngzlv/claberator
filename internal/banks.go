@@ -139,7 +139,7 @@ var banks = ClabeBanks{
 
 func ReturnRandomBank() ClabeBank {
 	mapLen := len(banks)
-	randNumber, err := rand.Int(rand.Reader, big.NewInt(int64(mapLen)))
+	randNumber, err := rand.Int(rand.Reader, big.NewInt(int64(mapLen-1)))
 	if err != nil {
 		log.Println(err)
 	}
