@@ -797,7 +797,7 @@ var citiesMap = ClabeCitiesMap{
 
 func ReturnRandomCity() (ClabeCityInfo, int) {
 	mapLen := len(citiesMap)
-	randNumber, err := rand.Int(rand.Reader, big.NewInt(int64(mapLen)))
+	randNumber, err := rand.Int(rand.Reader, big.NewInt(int64(mapLen-1)))
 	if err != nil {
 		log.Println(err)
 	}
