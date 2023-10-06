@@ -26,7 +26,7 @@ func (c *Clabe) ComputeChecksum(clabeNum17 string) int {
 	return -1
 }
 
-// Validate проверяет CLABE-номер и возвращает информацию о нем.
+// Validate проверяет CLABE-номер и возвращает информацию о нем, не используется
 func (c *Clabe) Validate(clabeNum string) ClabeCheck {
 	errorMap := map[string]string{
 		"length":     "Должно быть ровно 18 цифр",
@@ -54,7 +54,14 @@ func (c *Clabe) Validate(clabeNum string) ClabeCheck {
 	bankCodeInt, _ := strconv.Atoi(bankCode)
 	bank, bankExists := c.BanksMap[bankCodeInt]
 	cityCodeInt, _ := strconv.Atoi(cityCode)
-	cities, citiesExist := c.CitiesMap[cityCodeInt]
+	var cities ClabeCityInfo
+	for _, v := range c.Cities {
+		if v.Code == cityCodeInt {
+			cities = v
+			break
+		}
+	}
+	//cities := c.Cities[cityCodeInt]
 	realChecksum := c.ComputeChecksum(clabeNum)
 
 	var validationInfo struct {
@@ -65,7 +72,7 @@ func (c *Clabe) Validate(clabeNum string) ClabeCheck {
 	case !bankExists:
 		validationInfo.Invalid = "bank"
 		validationInfo.Data = bankCode
-	case !citiesExist:
+	case len(cities.Name) == 0:
 		validationInfo.Invalid = "city"
 		validationInfo.Data = cityCode
 	case checksum != realChecksum:
@@ -81,12 +88,10 @@ func (c *Clabe) Validate(clabeNum string) ClabeCheck {
 	}
 
 	var cityNames []string
-	for _, city := range cities {
-		if city.State != "" {
-			cityNames = append(cityNames, fmt.Sprintf("%s %s", city.Name, city.State))
-		} else {
-			cityNames = append(cityNames, city.Name)
-		}
+	if cities.State != "" {
+		cityNames = append(cityNames, fmt.Sprintf("%s %s", cities.Name, cities.State))
+	} else {
+		cityNames = append(cityNames, cities.Name)
 	}
 
 	return ClabeCheck{
@@ -97,8 +102,8 @@ func (c *Clabe) Validate(clabeNum string) ClabeCheck {
 		Tag:      bank.Tag,
 		Bank:     bank.Name,
 		City:     strings.Join(cityNames, ", "),
-		Multiple: len(cities) > 1,
-		Total:    len(cities),
+		Multiple: len(cities.Name) > 1,
+		Total:    len(cities.Name),
 		Account:  account,
 		Code: struct {
 			Bank string

@@ -2,9 +2,8 @@ package internal
 
 // Clabe представляет набор данных и функций для работы с CLABE-номерами.
 type Clabe struct {
-	BanksMap  map[int]ClabeBank
-	CitiesMap map[int][]ClabeCityInfo
-	Cities    []ClabeCityInfo
+	BanksMap map[int]ClabeBank
+	Cities   ClabeCities
 
 	Number   string
 	BankInfo ClabeBank
@@ -25,7 +24,7 @@ type ClabeCityInfo struct {
 	State string
 }
 
-type ClabeCitiesMap map[int][]ClabeCityInfo
+type ClabeCities []ClabeCityInfo
 
 type ClabeCheck struct {
 	OK       bool     // Проверка на валидность
