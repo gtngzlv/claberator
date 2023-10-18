@@ -1,16 +1,7 @@
 package internal
 
-import (
-	"crypto/rand"
-	"log"
-	"math/big"
-)
+import "github.com/brianvoe/gofakeit/v6"
 
 func ReturnRandomAccountNumber() int {
-	maxNumberValue := 9999
-	randNumber, err := rand.Int(rand.Reader, big.NewInt(int64(maxNumberValue)))
-	if err != nil {
-		log.Println(err)
-	}
-	return int(randNumber.Int64())
+	return gofakeit.Number(00000000001, 99999999999)
 }

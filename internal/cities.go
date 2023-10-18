@@ -795,7 +795,7 @@ var citiesMap = ClabeCities{
 	{Code: 969, Name: "Ciudad de México", State: "MX-CMX"},
 }
 
-func ReturnRandomCity() (ClabeCityInfo, int) {
+func ReturnRandomCity() ClabeCityInfo {
 	mapLen := len(citiesMap)
 	randNumber, err := rand.Int(rand.Reader, big.NewInt(int64(mapLen-1)))
 	if err != nil {
@@ -803,5 +803,5 @@ func ReturnRandomCity() (ClabeCityInfo, int) {
 	}
 	intRandomNumber := int(randNumber.Int64())
 	randomCity := citiesMap[intRandomNumber]
-	return randomCity, intRandomNumber
+	return randomCity
 }
