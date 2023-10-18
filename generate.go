@@ -7,10 +7,10 @@ import (
 func ReturnRandomClabe() internal.Clabe {
 	accountNumber := internal.ReturnRandomAccountNumber()
 	bankInfo := internal.ReturnRandomBank()
-	cityInfo, cityCode := internal.ReturnRandomCity()
+	cityInfo := internal.ReturnRandomCity()
 
 	var clabe internal.Clabe
-	generated := clabe.Calculate(bankInfo.Code, cityCode, accountNumber)
+	generated := clabe.Calculate(bankInfo.Code, cityInfo.Code, accountNumber)
 	clabe.Number = generated
 	clabe.BankInfo = bankInfo
 	clabe.CityInfo = cityInfo
