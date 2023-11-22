@@ -103,6 +103,42 @@ var banks = ClabeBanks{
 	{Code: 999, Tag: "N/A", Name: "N/A"},
 }
 
+var notParsedBanks = ClabeBanks{
+	{Code: 22, Tag: "GE MONEY", Name: "GE Money Bank"},
+	{Code: 32, Tag: "IXE", Name: "IXE Banco"},
+	{Code: 37, Tag: "INTERACCIONES", Name: "Banco Interacciones"},
+	{Code: 116, Tag: "ING", Name: "ING Bank (México)"},
+	{Code: 131, Tag: "FAMSA", Name: "Banco Ahorro Famsa"},
+	{Code: 134, Tag: "WAL-MART", Name: "Banco Wal-Mart de México Adelante"},
+	{Code: 139, Tag: "UBS BANK", Name: "UBS Banco"},
+	{Code: 604, Tag: "C.B. INBURSA", Name: "Inversora Bursátil"},
+	{Code: 607, Tag: "TIBER", Name: "Casa de Cambio Tiber"},
+	{Code: 610, Tag: "B&B", Name: "B y B Casa de Cambio"},
+	{Code: 611, Tag: "INTERCAM", Name: "Intercam Casa de Cambio"},
+	{Code: 614, Tag: "ACCIVAL", Name: "Acciones y Valores BaNamex, Casa de Bolsa"},
+	{Code: 615, Tag: "MERRILL LYNCH", Name: "Merrill Lynch México, Casa de Bolsa"},
+	{Code: 618, Tag: "ÚNICA", Name: "Única Casa de Cambio"},
+	{Code: 619, Tag: "ASEGURADORA MAPFRE", Name: "MAPFRE Tepeyac"},
+	{Code: 621, Tag: "CB ACTINBER", Name: "Actinver Casa de Bolsa"},
+	{Code: 622, Tag: "ACTINVE SI", Name: "Actinver"},
+	{Code: 623, Tag: "SKANDIA", Name: "Skandia Vida"},
+	{Code: 624, Tag: "CONSULTORÍA", Name: "Consultoría Internacional Casa de Cambio"},
+	{Code: 626, Tag: "CBDEUTSCHE", Name: "Deutsche Securities"},
+	{Code: 627, Tag: "ZURICH", Name: "Zurich Compañía de Seguros"},
+	{Code: 628, Tag: "ZURICHVI", Name: "Zurich Vida, Compañía de Seguros"},
+	{Code: 629, Tag: "HIPOTECARIA SU CASITA", Name: "Hipotecaria su Casita"},
+	{Code: 632, Tag: "BULLTICK C.B.", Name: "Bulltick Casa de Bolsa"},
+	{Code: 633, Tag: "STERLING", Name: "Sterling Casa de Cambio"},
+	{Code: 637, Tag: "ORDER", Name: "OrderExpress Casa de Cambio"},
+	{Code: 640, Tag: "CB JPMORGAN", Name: "J.P. Morgan Casa de Bolsa"},
+	{Code: 647, Tag: "TELECOMM", Name: "Telecomunicaciones de México"},
+	{Code: 649, Tag: "SKANDIA", Name: "Skandia Operadora"},
+	{Code: 651, Tag: "SEGMTY", Name: "Seguros Monterrey New York Life"},
+	{Code: 655, Tag: "SOFIEXPRESS", Name: "JP SofiExpress"},
+	{Code: 674, Tag: "AXA", Name: "AXA Seguros"},
+	{Code: 679, Tag: "FND", Name: "Financiera Nacional De Desarrollo Agropecuario"},
+	{Code: 846, Tag: "STP", Name: "Sistema de Transferencias y Pagos STP"}}
+
 func ReturnRandomBank() ClabeBank {
 	mapLen := len(banks)
 	randNumber, err := rand.Int(rand.Reader, big.NewInt(int64(mapLen-1)))
@@ -111,5 +147,16 @@ func ReturnRandomBank() ClabeBank {
 	}
 	intRandomNumber := int(randNumber.Int64())
 	randomBank := banks[intRandomNumber]
+	return randomBank
+}
+
+func ReturnNotParsedBank() ClabeBank {
+	mapLen := len(notParsedBanks)
+	randNumber, err := rand.Int(rand.Reader, big.NewInt(int64(mapLen-1)))
+	if err != nil {
+		log.Println(err)
+	}
+	intRandomNumber := int(randNumber.Int64())
+	randomBank := notParsedBanks[intRandomNumber]
 	return randomBank
 }

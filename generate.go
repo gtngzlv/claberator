@@ -16,3 +16,16 @@ func ReturnRandomClabe() internal.Clabe {
 	clabe.CityInfo = cityInfo
 	return clabe
 }
+
+func ReturnNotParsedClabe() internal.Clabe {
+	accountNumber := internal.ReturnRandomAccountNumber()
+	bankInfo := internal.ReturnNotParsedBank()
+	cityInfo := internal.ReturnRandomCity()
+
+	var clabe internal.Clabe
+	generated := clabe.Calculate(bankInfo.Code, cityInfo.Code, accountNumber)
+	clabe.Number = generated
+	clabe.BankInfo = bankInfo
+	clabe.CityInfo = cityInfo
+	return clabe
+}
